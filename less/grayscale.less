@@ -21,18 +21,39 @@ h4,
 h5,
 h6 {
     margin: 0 0 35px;
-    text-transform: uppercase;
     font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
     letter-spacing: 1px;
+    font-size: 6em;
+    line-height: 1.025;
+    letter-spacing: -0.0125em;
+
+    @media
+    (max-width: 991px),
+    (max-device-width: 991px) {
+        font-size: 5em;
+    }
+
+    @media
+    (max-width: 767px),
+    (max-device-width: 767px) {
+        font-size: 4em;
+    }
+
+    @media
+    (max-width: 480px),
+    (max-device-width: 480px) {
+        font-size: 2.5em;
+    }
 }
 
 p {
-    margin: 0 0 25px;
+    margin: 0 0 25px 0;
     font-size: 18px;
     line-height: 1.5;
+
     @media(min-width:768px) {
-        margin: 0 0 35px;
+        margin: 0 0 35px 0;
         font-size: 20px;
         line-height: 1.6;
     }
@@ -168,12 +189,15 @@ section {
     @media(min-width:768px) {
         height: 100%;
         padding: 0;
+
         .intro-body {
             .brand-heading {
                 font-size: 100px;
             }
+
             .intro-text {
                 font-size: 26px;
+                margin: 0 0 40px 0;
             }
         }
     }
@@ -254,6 +278,7 @@ section {
 
 .content-section {
     padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 .download-section {
@@ -271,12 +296,12 @@ section {
 #map {
     width: 100%;
     height: 200px;
-    margin-top: 100px;
 }
 
 @media(min-width:767px) {
     .content-section {
         padding-top: 250px;
+        padding-bottom: 250px;
     }
 
     .download-section {
@@ -285,7 +310,7 @@ section {
 
     #map {
         height: 400px;
-        margin-top: 250px;
+        padding-bottom: 0;
     }
 }
 
@@ -310,6 +335,25 @@ section {
         outline: none;
         color: white;
         background-color: @accentColorPrimary;
+    }
+}
+
+.section-dark {
+    background-color: @textColorPrimary;
+    color: white;
+
+    .btn-default {
+        border: 1px solid white;
+        color: white;
+        background-color: transparent;
+
+        &:hover,
+        &:focus {
+            border: 1px solid white;
+            outline: none;
+            color: @textColorPrimary;
+            background-color: white;
+        }
     }
 }
 
@@ -425,9 +469,37 @@ body {
     display: none;
 }
 
+#white-paper {
+    background-color: @accentColorSecondary;
+
+    .btn-default {
+        &:hover,
+        &:focus {
+            color: @accentColorSecondary;
+        }
+    }
+}
+
+// Contact
+
+#introduction {
+    background-color: @accentColorPrimary;
+    color: white;
+
+    .btn-default {
+        &:hover,
+        &:focus {
+            color: @accentColorPrimary;
+        }
+    }
+}
+
+
 // Email form
 
 #email-form {
+    background-color: @accentColorSecondary;
+
     input {
         padding: 22px;
     }
@@ -440,5 +512,12 @@ body {
             (max-device-width: 767px) {
                 margin-top: 20px;
             }
+    }
+
+    .btn-default {
+        &:hover,
+        &:focus {
+            color: @accentColorSecondary;
+        }
     }
 }

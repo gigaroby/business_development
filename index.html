@@ -275,6 +275,7 @@
 
             $('#email-form').submit(function(event) {
                 event.preventDefault();
+                $('#email-form-feedback').html('<div class="feedback-sign"><i class="fa fa-paper-plane-o"></i></div> Sending…');
 
                 $.post(
                     "http://www.INSERTURLHERE.com",
@@ -286,7 +287,7 @@
                 })
                 .fail(function() {
                     $('#email-form-feedback').html(
-                        '<div class="feedback-sign"><i class="fa fa-exclamation-circle"></i></div> Something went wrong when trying to subscribe to the mailing list.'
+                        '<div class="feedback-sign"><i class="fa fa-exclamation-triangle"></i></div> Something went wrong when trying to subscribe to the mailing list.'
                     );
                 });
             });

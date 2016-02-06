@@ -355,16 +355,6 @@ footer p {
   margin: 0;
   font-size: 14px;
 }
-::-moz-selection {
-  text-shadow: none;
-  background: #fcfcfc;
-  background: rgba(255, 255, 255, 0.2);
-}
-::selection {
-  text-shadow: none;
-  background: #fcfcfc;
-  background: rgba(255, 255, 255, 0.2);
-}
 img::selection {
   background: transparent;
 }
@@ -431,21 +421,32 @@ body {
 #introduction .btn-default:focus {
   color: #cf1d3b;
 }
-#email-form {
+#email-form-section {
   background-color: #0f69e3;
 }
-#email-form input {
+#email-form-section input {
   padding: 22px;
 }
-#email-form button {
+#email-form-section input[type="submit"] {
   width: 100%;
+  padding: 10px 22px;
 }
 @media (max-width: 767px), (max-device-width: 767px) {
-  #email-form button {
+  #email-form-section input[type="submit"] {
     margin-top: 20px;
   }
 }
-#email-form .btn-default:hover,
-#email-form .btn-default:focus {
+#email-form-section .btn-default:hover,
+#email-form-section .btn-default:focus {
   color: #0f69e3;
+}
+#email-form-section .email-form-feedback-container {
+  padding-top: 35px;
+}
+#email-form-section .email-form-feedback-container #email-form-feedback {
+  font-size: 20px;
+}
+#email-form-section .email-form-feedback-container .feedback-sign {
+  font-size: 50px;
+  line-height: 1.2;
 }

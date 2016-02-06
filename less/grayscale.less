@@ -393,17 +393,17 @@ footer {
     }
 }
 
-::-moz-selection {
-    text-shadow: none;
-    background: #fcfcfc;
-    background: fade(white, 20%);
-}
+// ::-moz-selection {
+//     text-shadow: none;
+//     background: #fcfcfc;
+//     background: fade(white, 20%);
+// }
 
-::selection {
-    text-shadow: none;
-    background: #fcfcfc;
-    background: fade(white, 20%);
-}
+// ::selection {
+//     text-shadow: none;
+//     background: #fcfcfc;
+//     background: fade(white, 20%);
+// }
 
 img::selection {
     background: transparent;
@@ -498,27 +498,41 @@ body {
 
 // Email form
 
-#email-form {
+#email-form-section {
     background-color: @accentColorSecondary;
 
     input {
         padding: 22px;
     }
 
-    button {
+    input[type="submit"] {
         width: 100%;
+        padding: 10px 22px;
 
         @media
-            (max-width: 767px),
-            (max-device-width: 767px) {
-                margin-top: 20px;
-            }
+        (max-width: 767px),
+        (max-device-width: 767px) {
+            margin-top: 20px;
+        }
     }
 
     .btn-default {
         &:hover,
         &:focus {
             color: @accentColorSecondary;
+        }
+    }
+
+    .email-form-feedback-container {
+        padding-top: 35px;
+
+        #email-form-feedback {
+            font-size: 20px;
+        }
+
+        .feedback-sign {
+            font-size: 50px;
+            line-height: 1.2;
         }
     }
 }

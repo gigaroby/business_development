@@ -176,7 +176,7 @@
 
 
     <!-- Email leads Section -->
-    <section id="email-form" class="section-dark content-section text-center">
+    <section id="email-form-section" class="section-dark content-section text-center">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
@@ -187,15 +187,18 @@
                         <form method="POST" action="#" id="email-form"> <!-- change form action in js below -->
                             <div class="form-group">
                                 <div class="col-sm-8">
-                                    <input type="email" class="form-control" placeholder="you@yourcompany.com" />
+                                    <input type="email" id ="email" class="form-control" placeholder="you@yourcompany.com" />
                                 </div>
                                 <div class="col-sm-4">
-                                    <button class="btn btn-default btn-lg">Send</button>
+                                    <input type="submit" value="Send" class="btn btn-default btn-lg"/>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
+            </div>
+            <div class="email-form-feedback-container row">
+                <p id="email-form-feedback"></p>
             </div>
         </div>
     </section>
@@ -227,55 +230,66 @@
     <script>
         $(document).ready(function() {
             function getTimeRemaining(endtime) {
-              var t = Date.parse(endtime) - Date.parse(new Date());
-              var seconds = Math.floor((t / 1000) % 60);
-              var minutes = Math.floor((t / 1000 / 60) % 60);
-              var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-              var days = Math.floor(t / (1000 * 60 * 60 * 24));
-              return {
-                'total': t,
-                'days': days,
-                'hours': hours,
-                'minutes': minutes,
-                'seconds': seconds
-              };
+                var t = Date.parse(endtime) - Date.parse(new Date());
+                var seconds = Math.floor((t / 1000) % 60);
+                var minutes = Math.floor((t / 1000 / 60) % 60);
+                var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+                var days = Math.floor(t / (1000 * 60 * 60 * 24));
+                return {
+                    'total': t,
+                    'days': days,
+                    'hours': hours,
+                    'minutes': minutes,
+                    'seconds': seconds
+                };
             }
 
             function initializeClock(id, endtime) {
-              var clock = document.getElementById(id);
-              var daysSpan = clock.querySelector('.days');
-              var hoursSpan = clock.querySelector('.hours');
-              var minutesSpan = clock.querySelector('.minutes');
-              var secondsSpan = clock.querySelector('.seconds');
+                var clock = document.getElementById(id);
+                var daysSpan = clock.querySelector('.days');
+                var hoursSpan = clock.querySelector('.hours');
+                var minutesSpan = clock.querySelector('.minutes');
+                var secondsSpan = clock.querySelector('.seconds');
 
-              function updateClock() {
-                var t = getTimeRemaining(endtime);
+                function updateClock() {
+                    var t = getTimeRemaining(endtime);
 
-                if (t.total <= 0) {
-                    $('#countdown-clock').css({display: 'none'});
-                    clearInterval(timeinterval);
-                } else {
-                    $('#countdown-clock').css({display: 'block'});
-                    daysSpan.innerHTML = t.days;
-                    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-                    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-                    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+                    if (t.total <= 0) {
+                        $('#countdown-clock').css({display: 'none'});
+                        clearInterval(timeinterval);
+                    } else {
+                        $('#countdown-clock').css({display: 'block'});
+                        daysSpan.innerHTML = t.days;
+                        hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+                        minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+                        secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+                    }
                 }
-              }
 
-              updateClock();
-              var timeinterval = setInterval(updateClock, 1000);
+                updateClock();
+                var timeinterval = setInterval(updateClock, 1000);
             }
 
             var deadline = new Date(Date.parse(new Date(2016, 1, 10, 23, 59, 59)));
             initializeClock('countdown-clock', deadline);
 
-            $('#emailform button').click(function(e){
-                e.preventDefault();
-                $.post( "INSERTURLHERE", $( "#emailform" ).serialize(), function(data){//<<<------
-                    alert("thanks!");
-                } );
-            })
+            $('#email-form').submit(function(event) {
+                event.preventDefault();
+
+                $.post(
+                    "http://www.INSERTURLHERE.com",
+                    {
+                        email: $('#email-form #email').val()
+                    }
+                ).done(function() {
+                    $('#email-form-feedback').html('<div class="feedback-sign"><i class="fa fa-check-circle"></i></div> Thanks for subscribing!');
+                })
+                .fail(function() {
+                    $('#email-form-feedback').html(
+                        '<div class="feedback-sign"><i class="fa fa-exclamation-circle"></i></div> Something went wrong when trying to subscribe to the mailing list.'
+                    );
+                });
+            });
         });
     </script>
 

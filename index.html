@@ -251,13 +251,15 @@
               function updateClock() {
                 var t = getTimeRemaining(endtime);
 
-                daysSpan.innerHTML = t.days;
-                hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-                minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-                secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-
                 if (t.total <= 0) {
-                  clearInterval(timeinterval);
+                    $('#countdown-clock').css({display: 'none'});
+                    clearInterval(timeinterval);
+                } else {
+                    $('#countdown-clock').css({display: 'block'});
+                    daysSpan.innerHTML = t.days;
+                    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+                    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+                    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
                 }
               }
 
@@ -265,7 +267,7 @@
               var timeinterval = setInterval(updateClock, 1000);
             }
 
-            var deadline = new Date(Date.parse(new Date(2016, 1, 10, 23, 59, 0)));
+            var deadline = new Date(Date.parse(new Date(2016, 1, 10, 23, 59, 59)));
             initializeClock('countdown-clock', deadline);
 
             $('#emailform button').click(function(e){

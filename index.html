@@ -5,11 +5,11 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta="viewport" content="width=device-width, initial-scale=1">
+    <meta="description" content="">
+    <meta="author" content="">
 
-    <title>Company Launch Page</title>
+    <title>Method Match - When gut feeling is not enough</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -58,6 +58,18 @@
             padding-top: 5px;
             font-size: 14px;
         }
+
+        #emailform input{
+            padding: 22px;
+        }
+
+        #emailform button{
+            width: 100%;
+        }
+
+        #white-paper, #video{
+            display: none;
+        }
     </style>
 
 </head>
@@ -72,7 +84,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">
-                    <i class="fa fa-briefcase"></i>  <span class="light">Company</span> Name
+                    <i class="fa fa-briefcase"></i>  <span class="light">Method Match</span>
                 </a>
             </div>
 
@@ -86,14 +98,18 @@
                     <li>
                         <a class="page-scroll" href="#introduction">Introduction</a>
                     </li>
-                    <li>
+                    <!--<li>
                         <a class="page-scroll" href="#video">Video</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#white-paper">White Paper</a>
                     </li>
+                    -->
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#emailform">Stay in touch</a>
                     </li>
                 </ul>
             </div>
@@ -108,7 +124,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <h1 class="brand-heading">Company</h1>
+                        <h1 class="brand-heading">Method Match</h1>
                         <p class="intro-text">Making hiring faster and easier</p>
                         <div id="clockdiv">
                             <div>
@@ -143,8 +159,14 @@
     <section id="introduction" class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h2>Some intro text goes here</h2>
-                <p>We allow you to trust your gut feelings to make the hiring process simpler.</p>
+                <h2>When gut feeling is not enough</h2>
+                <p>Hiring people is great. It means your business is growing and you can afford to add new talent to your team. At the same time, it can be a huge pain; You have to spend
+                ages trying to find the right person, when you could really be focusing on your core business instead. </p>
+
+                <p>At Method Match we understand that you care about the people you hire. Based on solid behavioral research combined with years of expertise, we created 
+                a method that will reduce your insecurity when hiring. Our method specifically targets the personal fit between the candidate and your company. It reveals the real person
+                behind the CV, so you find out about their true nature and inner motivations before spending hours interviewing them. </p>
+
             </div>
         </div>
     </section>
@@ -178,7 +200,7 @@
     <section id="contact" class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h2>Contact Company Name</h2>
+                <h2>Contact Method Match</h2>
                 <p>Feel free to contact us in case you have questions about our service concept.</p>
                 <ul class="list-inline banner-social-buttons">
                     <li>
@@ -192,13 +214,36 @@
         </div>
     </section>
 
+
+
+    <!-- Email leads Section -->
+    <section id="emailform" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Stay in touch</h2>
+                <p>Leave your email address to receive updates</p>
+                
+                <div class="col-lg-12">
+                    <form method="POST" action="#" id="emailform"> <!-- change form action in js below -->
+                        <div class="col-lg-8">
+                            <input type="email" class="form-control" placeholder="leonardo@dicaprio.com" />
+                        </div>
+                        <div class="col-lg-4">
+                            <button class="btn btn-default btn-lg">Send!</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Map Section -->
     <div id="map"></div>
 
     <!-- Footer -->
     <footer>
         <div class="container text-center">
-            <p>&copy; Company Name 2016</p>
+            <p>&copy; Method Match 2016</p>
         </div>
     </footer>
 
@@ -259,6 +304,13 @@
 
             var deadline = new Date(Date.parse(new Date(2016, 1, 10, 23, 59, 0)));
             initializeClock('clockdiv', deadline);
+
+            $('#emailform button').click(function(e){
+                e.preventDefault();
+                $.post( "INSERTURLHERE", $( "#emailform" ).serialize(), function(data){//<<<------
+                    alert("thanks!");
+                } );
+            })
         });
     </script>
 

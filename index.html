@@ -29,49 +29,6 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <style>
-        #clockdiv{
-            font-family: sans-serif;
-            color: #fff;
-            display: inline-block;
-            font-weight: 400;
-            text-align: center;
-            font-size: 30px;
-            margin-bottom: 20px;
-        }
-
-        #clockdiv > div{
-            padding: 5px 5px;
-            border-radius: 5px;
-            background: #00BF96;
-            display: inline-block;
-        }
-
-        #clockdiv div > span{
-            padding: 10px;
-            border-radius: 5px;
-            background: #00816A;
-            display: inline-block;
-        }
-
-        .smalltext{
-            padding-top: 5px;
-            font-size: 14px;
-        }
-
-        #emailform input{
-            padding: 22px;
-        }
-
-        #emailform button{
-            width: 100%;
-        }
-
-        #white-paper, #video{
-            display: none;
-        }
-    </style>
-
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -109,7 +66,7 @@
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#emailform">Stay in touch</a>
+                        <a class="page-scroll" href="#email-form">Stay in touch</a>
                     </li>
                 </ul>
             </div>
@@ -126,22 +83,22 @@
                     <div class="col-md-8 col-md-offset-2">
                         <h1 class="brand-heading">Method Match</h1>
                         <p class="intro-text">Making hiring faster and easier</p>
-                        <div id="clockdiv">
+                        <div id="countdown-clock">
                             <div>
                                 <span class="days"></span>
-                                <div class="smalltext">Days</div>
+                                <div class="small-text">Days</div>
                             </div>
                             <div>
                                 <span class="hours"></span>
-                                <div class="smalltext">Hours</div>
+                                <div class="small-text">Hours</div>
                             </div>
                             <div>
                                 <span class="minutes"></span>
-                                <div class="smalltext">Minutes</div>
+                                <div class="small-text">Minutes</div>
                             </div>
                             <div>
                                 <span class="seconds"></span>
-                                <div class="smalltext">Seconds</div>
+                                <div class="small-text">Seconds</div>
                             </div>
                         </div>
                         <div>
@@ -159,7 +116,7 @@
     <section id="introduction" class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <h2>When gut feeling is not enough</h2>
+                <h2>When your gut feeling is not enough</h2>
                 <p>Hiring people is great. It means your business is growing and you can afford to add new talent to your team. At the same time, it can be a huge pain; You have to spend
                 ages trying to find the right person, when you could really be focusing on your core business instead. </p>
 
@@ -217,19 +174,21 @@
 
 
     <!-- Email leads Section -->
-    <section id="emailform" class="container content-section text-center">
+    <section id="email-form" class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>Stay in touch</h2>
                 <p>Leave your email address to receive updates</p>
                 
                 <div class="col-lg-12">
-                    <form method="POST" action="#" id="emailform"> <!-- change form action in js below -->
-                        <div class="col-lg-8">
-                            <input type="email" class="form-control" placeholder="leonardo@dicaprio.com" />
-                        </div>
-                        <div class="col-lg-4">
-                            <button class="btn btn-default btn-lg">Send!</button>
+                    <form method="POST" action="#" id="email-form"> <!-- change form action in js below -->
+                        <div class="form-group">
+                            <div class="col-sm-8">
+                                <input type="email" class="form-control" placeholder="you@yourcompany.com" />
+                            </div>
+                            <div class="col-sm-4">
+                                <button class="btn btn-default btn-lg">Send</button>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -303,7 +262,7 @@
             }
 
             var deadline = new Date(Date.parse(new Date(2016, 1, 10, 23, 59, 0)));
-            initializeClock('clockdiv', deadline);
+            initializeClock('countdown-clock', deadline);
 
             $('#emailform button').click(function(e){
                 e.preventDefault();

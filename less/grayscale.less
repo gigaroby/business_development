@@ -4,9 +4,9 @@
 body {
     width: 100%;
     height: 100%;
-    font-family: "Lora","Helvetica Neue",Helvetica,Arial,sans-serif;
-    color: white;
-    background-color: black;
+    font-family: "Helvetica Neue", Helvetica,Arial, sans-serif;
+    color: @textColorPrimary;
+    background-color: @backgroundColorPrimary;
 }
 
 html {
@@ -39,14 +39,23 @@ p {
 }
 
 a {
-    color: @primary;
+    color: @accentColorPrimary;
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
     &:hover,
     &:focus {
         text-decoration: none;
-        color: darken(@primary,20%);
+        color: darken(@accentColorPrimary,20%);
+    }
+}
+
+section {
+    a,
+    button,
+    .btn,
+    input {
+        .border-radius(23px 23px) !important;
     }
 }
 
@@ -59,44 +68,53 @@ a {
     border-bottom: 1px solid fade(white, 30%);
     text-transform: uppercase;
     font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
-    background-color: black;
+    background-color: @accentColorPrimary;
+
     .navbar-toggle {
         padding: 4px 6px;
         font-size: 16px;
         color: white;
+
         &:focus,
         &:active {
             outline: none;
         }
     }
+
     .navbar-brand {
         font-weight: 700;
         &:focus {
             outline: none;
         }
     }
+    
     a {
         color: white;
     }
+    
     .nav {
         li {
             a {
                 -webkit-transition: background .3s ease-in-out;
                 -moz-transition: background .3s ease-in-out;
                 transition: background .3s ease-in-out;
+
                 &:hover {
                     color: fade(white, 80%);
                     outline: none;
                     background-color: transparent;
                 }
+                
                 &:focus,
                 &:active {
                     outline: none;
                     background-color: transparent;
                 }
             }
+            
             &.active {
                 outline: none;
+                
                 a {
                     background-color: fade(white, 30%);
                     &:hover {
@@ -106,6 +124,7 @@ a {
             }
         }
     }
+
     @media(min-width:768px) {
         padding: 20px 0;
         border-bottom: none;
@@ -114,9 +133,10 @@ a {
         -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
         -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
         transition: background .5s ease-in-out,padding .5s ease-in-out;
+        
         &.top-nav-collapse {
             padding: 0;
-            background: black;
+            background: @accentColorPrimary;
             border-bottom: 1px solid fade(white, 30%);
         }
     }
@@ -280,28 +300,37 @@ a {
 }
 
 .btn-default {
-    border: 1px solid @primary;
-    color: @primary;
+    border: 1px solid @accentColorPrimary;
+    color: @accentColorPrimary;
     background-color: transparent;
+
     &:hover,
     &:focus {
-        border: 1px solid @primary;
+        border: 1px solid @accentColorPrimary;
         outline: none;
-        color: black;
-        background-color: @primary;
+        color: white;
+        background-color: @accentColorPrimary;
     }
 }
 
 ul.banner-social-buttons {
     margin-top: 0;
+
     @media(max-width:1199px) {
         margin-top: 15px;
     }
+
+    li {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
     @media(max-width:767px) {
         li {
             display: block;
             margin-bottom: 20px;
             padding: 0;
+
             &:last-child {
                 margin-bottom: 0;
             }
@@ -338,4 +367,74 @@ img::-moz-selection {
 
 body {
     webkit-tap-highlight-color: fade(white, 20%);
+}
+
+// Countdown clock
+
+#countdown-clock {
+    font-family: sans-serif;
+    color: #fff;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+
+    @media
+    (max-width: 480px),
+    (max-device-width: 480px) {
+        font-size: 24px;
+    }
+
+    .small-text {
+        padding-top: 5px;
+        font-size: 14px;
+    }
+
+    & > div {
+        padding: 5px 5px;
+        border-radius: 5px;
+        background-color: @accentColorSecondary;
+        display: inline-block;
+
+        &  > span {
+            width: 62px;
+            padding: 10px;
+            border-radius: 5px;
+            background: darken(@accentColorSecondary, 8%);
+            display: inline-block;
+
+            @media
+            (max-width: 480px),
+            (max-device-width: 480px) {
+                width: 54px;
+                padding: 6px 0;
+            }
+        }
+    }
+}
+
+// Video, white paper
+
+#video,
+#white-paper {
+    display: none;
+}
+
+// Email form
+
+#email-form {
+    input {
+        padding: 22px;
+    }
+
+    button {
+        width: 100%;
+
+        @media
+            (max-width: 767px),
+            (max-device-width: 767px) {
+                margin-top: 20px;
+            }
+    }
 }

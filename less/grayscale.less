@@ -220,10 +220,22 @@ section {
 
     .navbar-toggle {
         display: inline-block;
+        margin-right: 0;
     }
 
     .navbar-header {
         width: 100%;
+    }
+}
+
+@media(max-width:767px)  {
+    .navbar-toggle {
+        display: inline-block;
+        margin-right: 15px;
+    }
+
+    .navbar-header {
+        width: auto;
     }
 }
 

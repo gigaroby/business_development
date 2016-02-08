@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/csv"
-	"encoding/json"
 	"flag"
 	"log"
 	"net/http"
@@ -20,6 +19,7 @@ func writeEmails(emails <-chan string) {
 	if err != nil {
 		log.Fatal(err)
 	}
+	defer f.Close()
 
 	csvw := csv.NewWriter(f)
 	for e := range emails {
@@ -36,15 +36,7 @@ func main() {
 	emails := make(chan string)
 	go writeEmails(emails)
 	http.HandleFunc("/", func(rw http.ResponseWriter, req *http.Request) {
-		dec := json.NewDecoder(req.Body)
-		e := make(map[string]string)
-		if err := dec.Decode(e); err != nil {
-			log.Println(err)
-			http.Error(rw, http.StatusText(http.StatusBadRequest), http.StatusBadRequest)
-			return
-		}
-
-		if email, ok := e["email"]; ok {
+		if email := req.PostFormValue("email"); email != "" {
 			emails <- email
 		} else {
 			log.Println("no email provided")
@@ -53,6 +45,5 @@ func main() {
 		}
 		rw.WriteHeader(http.StatusOK)
 	})
-
 	log.Fatal(http.ListenAndServe(*addr, nil))
 }

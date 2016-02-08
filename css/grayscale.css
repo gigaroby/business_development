@@ -502,6 +502,15 @@ body {
 #email-form-section input {
   padding: 22px;
 }
+#email-form-section input[type="text"],
+#email-form-section input[type="email"] {
+  -moz-box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  padding: 11px 22px;
+  font-size: 16px;
+  color: #3d3d3d !important;
+}
 #email-form-section input[type="submit"] {
   width: 100%;
   padding: 10px 22px;

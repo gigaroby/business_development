@@ -39,6 +39,7 @@ func main() {
 		dec := json.NewDecoder(req.Body)
 		e := make(map[string]string)
 		if err := dec.Decode(e); err != nil {
+			log.Println(err)
 			http.Error(rw, http.StatusText(http.StatusBadRequest), http.StatusBadRequest)
 			return
 		}
@@ -46,6 +47,7 @@ func main() {
 		if email, ok := e["email"]; ok {
 			emails <- email
 		} else {
+			log.Println("no email provided")
 			http.Error(rw, http.StatusText(http.StatusBadRequest), http.StatusBadRequest)
 			return
 		}

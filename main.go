@@ -32,6 +32,7 @@ func writeEmails(emails <-chan string) {
 }
 
 func main() {
+	flag.Parse()
 	emails := make(chan string)
 	go writeEmails(emails)
 	http.HandleFunc("/", func(rw http.ResponseWriter, req *http.Request) {

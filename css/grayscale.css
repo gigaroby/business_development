@@ -239,7 +239,7 @@ section input {
   padding: 100px 0;
   text-align: center;
   color: white;
-  background: url(../img/intro-bg.jpg) no-repeat bottom center scroll;
+  background: url(../img/Website-Cover.jpg) no-repeat bottom center scroll;
   background-color: black;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -280,7 +280,7 @@ section input {
   height: 70px;
   margin-top: 15px;
   padding: 7px 16px;
-  border: 2px solid white;
+  border: 1px solid white;
   border-radius: 100% !important;
   font-size: 40px;
   color: white;
@@ -400,19 +400,22 @@ section input {
 }
 .tell-me-more {
   font-size: 18px;
-  background-color: #cf1d3b;
-  color: white;
-  border: 1px solid #f095a4;
-  padding: 10px 20px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -o-border-radius: 10px;
-  -ms-border-radius: 10px;
-  border-radius: 10px;
+  background-color: white;
+  color: #cf1d3b;
+  border: 1px solid white;
+  padding: 10px 22px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -o-border-radius: 25px;
+  -ms-border-radius: 25px;
+  border-radius: 25px;
 }
-.tell-me-more:hover {
-  background-color: #b41933;
-  border: 1px solid #ec7689;
+.tell-me-more:hover,
+.tell-me-more:focus,
+.tell-me-more:active {
+  background-color: #e6e6e6;
+  color: #cf1d3b;
+  border: 1px solid white;
 }
 .section-dark {
   background-color: #3d3d3d;
@@ -519,16 +522,28 @@ body {
 #white-paper .btn-default:focus {
   color: #0f69e3;
 }
-#introduction {
-  background-color: #cf1d3b;
-  color: white;
+#contact .btn-default {
+  color: #0f69e3;
+  border: 1px solid #0f69e3;
 }
-#introduction .btn-default:hover,
-#introduction .btn-default:focus {
-  color: #cf1d3b;
+#contact .btn-default:hover,
+#contact .btn-default:focus {
+  color: white;
+  background-color: #0f69e3;
+  border: 1px solid #0f69e3;
 }
 #email-form-section {
+  color: white;
   background-color: #0f69e3;
+}
+#email-form-section .btn-default {
+  color: white;
+  border: 1px solid white;
+}
+#email-form-section .btn-default:hover,
+#email-form-section .btn-default:focus {
+  color: #0f69e3;
+  background-color: white;
 }
 #email-form-section input {
   padding: 22px;
@@ -541,6 +556,7 @@ body {
   padding: 11px 22px;
   font-size: 16px;
   color: #3d3d3d !important;
+  border: 1px solid #ccc;
 }
 #email-form-section input[type="submit"] {
   width: 100%;
@@ -550,10 +566,6 @@ body {
   #email-form-section input[type="submit"] {
     margin-top: 20px;
   }
-}
-#email-form-section .btn-default:hover,
-#email-form-section .btn-default:focus {
-  color: #0f69e3;
 }
 #email-form-section .email-form-feedback-container {
   padding-top: 35px;

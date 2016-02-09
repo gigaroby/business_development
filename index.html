@@ -83,6 +83,13 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <h1 class="brand-heading">Method Match</h1>
+                        <p class="intro-text">
+                            Find your next team member quickly and effectively. Our tried and tested method uses social analytics to ensure you will only meet the most suitable candidates.
+                        </p>
+                        <p class="intro-text">
+                            “It’s like Speed Dating for hiring!” <i>—Atlanta Herald</i>
+                        </p>
+                        <!--
                         <p class="intro-text">Making hiring faster and easier</p>
                         <div id="countdown-clock">
                             <div>
@@ -102,9 +109,10 @@
                                 <div class="small-text">Seconds</div>
                             </div>
                         </div>
+                        -->
                         <div>
-                            <a href="#introduction" class="btn btn-circle page-scroll">
-                                <i class="fa fa-angle-double-down animated"></i>
+                            <a href="#introduction" class="btn btn-default page-scroll tell-me-more">
+                                Tell Me More
                             </a>
                         </div>
                     </div>
@@ -274,7 +282,7 @@
             }
 
             var deadline = new Date(Date.parse(new Date(2016, 1, 10, 23, 59, 59)));
-            initializeClock('countdown-clock', deadline);
+            // initializeClock('countdown-clock', deadline);
 
             $('#email-form').submit(function(event) {
                 event.preventDefault();

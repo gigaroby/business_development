@@ -154,6 +154,12 @@ section input {
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   }
 }
+/*
+// UNCOMMENT THE FOLLOWING LINES IF WE HAVE MORE THAN 3 LINKS IN NAVIGATION BAR
+// Change navbar media query breakpoint so that the navbar always fits on one line
+// (we have too many navbar items for the default layout when video and white paper
+// sections are shown)
+
 @media screen and (min-width: 992px) {
   .navbar-brand {
     float: left;
@@ -187,36 +193,45 @@ section input {
     overflow: visible !important;
   }
 }
-@media (max-width: 991px) {
-  .navbar-collapse.collapse {
-    display: none !important;
-  }
-  .navbar-collapse {
-    overflow-x: visible !important;
-  }
-  .navbar-collapse.in {
-    overflow-y: auto !important;
-  }
-  .collapse.in {
-    display: block !important;
-  }
-  .navbar-toggle {
-    display: inline-block;
-    margin-right: 0;
-  }
-  .navbar-header {
-    width: 100%;
-  }
+
+@media(max-width:991px)  {
+    .navbar-collapse.collapse {
+        display: none !important;
+    }
+
+    .navbar-collapse {
+        overflow-x: visible !important;
+    }
+
+    .navbar-collapse.in {
+      overflow-y: auto !important;
+    }
+
+    .collapse.in {
+      display: block !important;
+    }
+
+    .navbar-toggle {
+        display: inline-block;
+        margin-right: 0;
+    }
+
+    .navbar-header {
+        width: 100%;
+    }
 }
-@media (max-width: 767px) {
-  .navbar-toggle {
-    display: inline-block;
-    margin-right: 15px;
-  }
-  .navbar-header {
-    width: auto;
-  }
+
+@media(max-width:767px)  {
+    .navbar-toggle {
+        display: inline-block;
+        margin-right: 15px;
+    }
+
+    .navbar-header {
+        width: auto;
+    }
 }
+*/
 .intro {
   display: table;
   width: 100%;
@@ -257,7 +272,7 @@ section input {
   }
   .intro .intro-body .intro-text {
     font-size: 24px;
-    margin: 0 0 40px 0;
+    margin: 0 0 35px 0;
   }
 }
 .btn-circle {
@@ -382,6 +397,22 @@ section input {
   outline: none;
   color: white;
   background-color: #cf1d3b;
+}
+.tell-me-more {
+  font-size: 18px;
+  background-color: #cf1d3b;
+  color: white;
+  border: 1px solid #f095a4;
+  padding: 10px 20px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -o-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+}
+.tell-me-more:hover {
+  background-color: #b41933;
+  border: 1px solid #ec7689;
 }
 .section-dark {
   background-color: #3d3d3d;

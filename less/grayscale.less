@@ -163,6 +163,8 @@ section {
     }
 }
 
+/*
+// UNCOMMENT THE FOLLOWING LINES IF WE HAVE MORE THAN 3 LINKS IN NAVIGATION BAR
 // Change navbar media query breakpoint so that the navbar always fits on one line
 // (we have too many navbar items for the default layout when video and white paper
 // sections are shown)
@@ -238,6 +240,7 @@ section {
         width: auto;
     }
 }
+*/
 
 .intro {
     display: table;
@@ -278,7 +281,7 @@ section {
 
             .intro-text {
                 font-size: 24px;
-                margin: 0 0 40px 0;
+                margin: 0 0 35px 0;
             }
         }
     }
@@ -423,6 +426,20 @@ section {
         outline: none;
         color: white;
         background-color: @accentColorPrimary;
+    }
+}
+
+.tell-me-more {
+    font-size: 18px;
+    background-color: @accentColorPrimary;
+    color: white;
+    border: 1px solid lighten(@accentColorPrimary, 30%);
+    padding: 10px 20px;
+    .border-radius(10px);
+
+    &:hover {
+        background-color: darken(@accentColorPrimary, 6%);
+        border: 1px solid lighten(@accentColorPrimary, 23%);
     }
 }
 

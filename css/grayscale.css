@@ -433,36 +433,53 @@ section input {
   color: #3d3d3d;
   background-color: white;
 }
-ul.banner-social-buttons {
+footer {
+  padding: 35px 0 35px 0;
+}
+footer p {
+  margin: 6px 0 0 0;
+  line-height: 22px;
+  font-size: 16px;
+}
+footer .social {
+  text-align: right;
+}
+@media (max-width: 767px), (max-device-width: 767px) {
+  footer .social {
+    text-align: left;
+    margin-top: 14px;
+  }
+}
+footer .social ul.banner-social-buttons {
   margin-top: 0;
 }
-@media (max-width: 1199px) {
-  ul.banner-social-buttons {
-    margin-top: 15px;
-  }
-}
-ul.banner-social-buttons li {
+footer .social ul.banner-social-buttons li {
   padding-left: 10px;
   padding-right: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 @media (max-width: 767px) {
-  ul.banner-social-buttons li {
+  footer .social ul.banner-social-buttons li {
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding: 0;
   }
-  ul.banner-social-buttons li:last-child {
+  footer .social ul.banner-social-buttons li:last-child {
     margin-bottom: 0;
   }
 }
-footer {
-  background-color: #333;
-  color: #828282;
-  padding: 20px 0;
+footer .btn-default {
+  padding: 0;
+  color: #0f69e3;
+  border: none;
+  font-size: 16px;
 }
-footer p {
-  margin: 0;
-  font-size: 14px;
+footer .btn-default:hover,
+footer .btn-default:focus {
+  color: #0c53b3;
+  background-color: white;
+  border: none;
 }
 img::selection {
   background: transparent;

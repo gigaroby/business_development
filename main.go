@@ -25,8 +25,9 @@ func writeEmails(emails <-chan string) {
 	csvw := csv.NewWriter(f)
 	for e := range emails {
 		now := time.Now()
-		err = csvw.Write([]string{e, now.Format(time.RFC3339)})
-		if err != nil {
+		csvw.Write([]string{e, now.Format(time.RFC3339)})
+		csvw.Flush()
+		if err = csvw.Error(); err != nil {
 			log.Fatal(err)
 		}
 	}

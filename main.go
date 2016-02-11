@@ -5,6 +5,7 @@ import (
 	"flag"
 	"log"
 	"net/http"
+	"net/mail"
 	"os"
 	"time"
 )
@@ -36,13 +37,20 @@ func main() {
 	emails := make(chan string)
 	go writeEmails(emails)
 	http.HandleFunc("/", func(rw http.ResponseWriter, req *http.Request) {
-		if email := req.PostFormValue("email"); email != "" {
-			emails <- email
+		if e := req.PostFormValue("email"); e != "" {
+			email, err := mail.ParseAddress(e)
+			if err != nil {
+				log.Printf("%s is not a valid email", e)
+				http.Error(rw, http.StatusText(http.StatusBadRequest), http.StatusBadRequest)
+				return
+			}
+			emails <- email.Address
 		} else {
 			log.Println("no email provided")
 			http.Error(rw, http.StatusText(http.StatusBadRequest), http.StatusBadRequest)
 			return
 		}
+
 		rw.WriteHeader(http.StatusOK)
 	})
 	log.Fatal(http.ListenAndServe(*addr, nil))
